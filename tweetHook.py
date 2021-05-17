@@ -2,15 +2,10 @@ import requests
 import os
 import json
 import configtoken  ##contains bearer token
-# To set your environment variables in your terminal run the following line:
-# export 'BEARER_TOKEN'='<your_bearer_token>'
 
 
-# urlSendDataTweets = ""
-
-def auth():
-    # print(str(os.environ.get("BEARER_TOKEN")))
-    return str(os.environ.get("BEARER_TOKEN"))
+# urlSendDataTweets = "" #url to post tweet data
+# urlSendDataUsers = "" #url to post user data
 
 
 def create_url_tweets():
