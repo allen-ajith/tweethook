@@ -2,11 +2,21 @@ import requests
 import json
 import configtoken           ##contains bearer token
 import time
+import tweepy, sys
+from random import randint
 # import pprint
 # import sqlite3
 # import os
 
 
+keys = {"consumer_key": "LFsJb4hVhbm9goH0nkcbykv4x","consumer_secret": "nRgkWf4lb6LwCrrHZtAnnSEV1panwSiikaCrIFFs7rXLR48KzG", "access_token": "1393850500504637440-rlcFiq9GLsjdeulQ7FpZUVthtar8Vj","access_token_secret": "HEq8Lr3BvXjmwfYfuWc3j4ePcQSWkYl24qHfgQftMPYPf"}
+CONSUMER_KEY = keys['consumer_key']
+CONSUMER_SECRET = keys['consumer_secret']
+ACCESS_TOKEN = keys['access_token']
+ACCESS_TOKEN_SECRET = keys['access_token_secret']
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+api = tweepy.API(auth)
 
 def create_url_tweets():
     return "https://api.twitter.com/2/tweets/search/stream?tweet.fields=author_id,referenced_tweets,conversation_id,public_metrics,created_at,source"
@@ -25,6 +35,7 @@ def create_headers(bearer_token):
 def connect_to_endpoint_tweet(url, headers):
     response = requests.request("GET", url, headers=headers, stream=True)
     t0 = time.perf_counter()
+    global api
     print('twitter response: ',response.status_code)
     # print(response.headers)
     if response.status_code != 200:
@@ -39,13 +50,17 @@ def connect_to_endpoint_tweet(url, headers):
                 if response_line:
                     json_response = json.loads(response_line)
                     print(json.dumps(json_response, indent =4,sort_keys=True))
-                    authID = json_response["data"]["author_id"]
-                    refTweet = json_response["data"]["referenced_tweets"][0]
-                    
+                    authID = str(json_response["data"]["author_id"])
+                    tweetID = json_response["data"]["id"]
+                    print("hello this is working")
+                    message = "https://twitter.com/vijayanpinarayi/status/"+str(tweetID)
+                    dm = api.send_direct_message(recipient_id = 1011919149214326785,text = message)
+                    print(dm.message_create['message_data']['text'])
+                    # refTweet = json_response["data"]["referenced_tweets"][0]
                     # store_tweet_data(json_response)
-                    connect_to_endpoint_users(authID,headers)
-                    if "referenced_tweets" in json_response["data"]:
-                        get_all_parents(refTweet,headers)
+                    # connect_to_endpoint_users(authID,headers)
+                    # if "referenced_tweets" in json_response["data"]:
+                    #     get_all_parents(refTweet,headers)
         except:
             t1 = time.perf_counter() - t0
             print("connection lasted :",t1)
