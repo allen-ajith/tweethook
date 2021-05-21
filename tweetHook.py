@@ -1,6 +1,6 @@
 import requests
 import json
-import configtoken           ##contains bearer token
+# import configtoken           ##contains bearer token
 import tweepy, sys
 from random import randint
 import os
