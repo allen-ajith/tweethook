@@ -17,5 +17,5 @@ handle = 'MadavanaB'
 user_id = api.get_user(handle).id_str
 print(type(user_id))
 message = 'hello, testing from tweepy'
-dm = api.send_direct_message(recipient_id = user_id,text = message)
+dm = api.send_direct_message(recipient_id=str(1395639903443046404), text=message)
 print(dm.message_create['message_data']['text'])
