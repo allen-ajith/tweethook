@@ -1,6 +1,6 @@
 import requests
 import json
-import configtoken           ##contains bearer token
+# import configtoken           ##contains bearer token
 import time
 import tweepy, sys
 from random import randint
@@ -8,7 +8,13 @@ from random import randint
 # import sqlite3
 # import os
 
-
+brToken = "AAAAAAAAAAAAAAAAAAAAACTCPgEAAAAApQVwDho4mLKixdozJfjvgfqw7t0%3De0xqhnIzmjNjmlTXtXLgqtULqLWIy9UVOY8DfMZo6jZzqy4oMY"
+keys = {
+    "consumer_key": "L6hQa4ojav1gemYYwmmFdriaA",
+    "consumer_secret": "MVhP8zTNqZrtjngCGyEuB9StV3gRIx3G4dvehBSyRp0yBGCTmZ",
+    "access_token": "1393850500504637440-jD5EW7vPzGkiL7K5E9m0UXFk1YwMXK",
+    "access_token_secret": "IBaMXWQrj1N5ACvOJdu9GjCPVJAFRDpn67Do9Fc6AAt5I"
+}
 
 CONSUMER_KEY = configtoken.keys['consumer_key']
 CONSUMER_SECRET = configtoken.keys['consumer_secret']
@@ -112,7 +118,7 @@ def connect_to_endpoint_tweet(url, headers):
 #     if "referenced_tweets" not in data:
 #         data["referenced_tweets"] = [{"id":"none","type":"none"}]
 #     print(json.dumps(data, indent =4,sort_keys=True))
-    
+
 
 
 # def store_user_data(json_response):
@@ -120,7 +126,7 @@ def connect_to_endpoint_tweet(url, headers):
 #     for key,value in json_response["data"][0].items():
 #         data[key]= value
 #     print(json.dumps(data, indent =4,sort_keys=True))
-    
+
 
 
 
