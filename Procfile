@@ -1,3 +1,2 @@
-web: python tweetHook.py
+web: python server.py
 
-worker: python tweetHook.py 

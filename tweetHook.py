@@ -1,25 +1,19 @@
 import requests
 import json
 # import configtoken           ##contains bearer token
-import time
 import tweepy, sys
 from random import randint
-# import pprint
-# import sqlite3
-# import os
+from os import environ
 
-brToken = "AAAAAAAAAAAAAAAAAAAAACTCPgEAAAAApQVwDho4mLKixdozJfjvgfqw7t0%3De0xqhnIzmjNjmlTXtXLgqtULqLWIy9UVOY8DfMZo6jZzqy4oMY"
-keys = {
-    "consumer_key": "L6hQa4ojav1gemYYwmmFdriaA",
-    "consumer_secret": "MVhP8zTNqZrtjngCGyEuB9StV3gRIx3G4dvehBSyRp0yBGCTmZ",
-    "access_token": "1393850500504637440-jD5EW7vPzGkiL7K5E9m0UXFk1YwMXK",
-    "access_token_secret": "IBaMXWQrj1N5ACvOJdu9GjCPVJAFRDpn67Do9Fc6AAt5I"
-}
+# CONSUMER_KEY = configtoken.keys['consumer_key']
+# CONSUMER_SECRET = configtoken.keys['consumer_secret']
+# ACCESS_TOKEN = configtoken.keys['access_token']
+# ACCESS_TOKEN_SECRET = configtoken.keys['access_token_secret']
 
-CONSUMER_KEY = configtoken.keys['consumer_key']
-CONSUMER_SECRET = configtoken.keys['consumer_secret']
-ACCESS_TOKEN = configtoken.keys['access_token']
-ACCESS_TOKEN_SECRET = configtoken.keys['access_token_secret']
+CONSUMER_KEY = environ['consumer_key']
+CONSUMER_SECRET = environ['consumer_secret']
+ACCESS_TOKEN = environ['access_token']
+ACCESS_TOKEN_SECRET = environ['access_token_secret']
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
@@ -132,7 +126,7 @@ def connect_to_endpoint_tweet(url, headers):
 
 
 def main():
-    bearer_token = configtoken.brToken
+    bearer_token = environ['brToken']
     url = create_url_tweets()
     headers = create_headers(bearer_token)
     timeout = 0
