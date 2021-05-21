@@ -1,2 +1,3 @@
-web: python server.py
+worker: python tweetHook.py
+clock: python clock.py
 
