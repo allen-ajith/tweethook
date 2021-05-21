@@ -24,7 +24,7 @@ s3 = S3Connection(os.environ['consumer_key'], os.environ['consumer_secret'],
 # CONSUMER_SECRET = keys['consumer_secret']
 # ACCESS_TOKEN = keys['access_token']
 # ACCESS_TOKEN_SECRET = keys['access_token_secret']
-
+print(os.environ['consumer_key'])
 CONSUMER_KEY = os.environ['consumer_key']
 CONSUMER_SECRET = os.environ['consumer_secret']
 ACCESS_TOKEN = os.environ['access_token']
