@@ -3,11 +3,6 @@ from random import randint
 import os
 from boto.s3.connection import S3Connection
 
-# s3 = S3Connection(os.environ['consumer_key'], os.environ['consumer_secret'],
-#                   os.environ['access_token'],
-#                   os.environ['access_token_secret'],os.environ['brToken'])
-
-
 CONSUMER_KEY = os.environ['consumer_key']
 CONSUMER_SECRET = os.environ['consumer_secret']
 ACCESS_TOKEN = os.environ['access_token']
@@ -46,8 +41,11 @@ def connect_to_endpoint_tweet(url, headers):
                     parentauthor = json_response["data"]["in_reply_to_user_id"]
                     message = "https://twitter.com/"+parentauthor+"/status/"+parentTwtID
                     # message="hello, you are gay"
-                    dm = api.send_direct_message(recipient_id = authID,text = message)
-                    print(dm.message_create['message_data']['text'])
+                    try:
+                        dm = api.send_direct_message(recipient_id = authID,text = message)
+                        print(dm.message_create['message_data']['text'])
+                    except tweepy.TweepError as e:
+                        print("ThreaderBot:Error in sending '{}' as dm response, {}".format(message,e))
         except:
             print("calling again")
             return "callagain"
