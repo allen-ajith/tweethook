@@ -24,5 +24,10 @@ Write a personal script that uses the Twitter API to save the tweet thread in a 
 ## How to configure
 Theres nothing much to configure. The bot is already hosted on heroku and won't allow multiple instances of itself to run.
 All the API tokens and keys are given as an environment variable in heroku and the dependencies used for the bot are saved in requirements.txt
+To run in your system make a twitter dev account and use the tokens and access keys.
 ## How to Run
 The bot is now live. To save a tweet, the user needs to mention the bot as a reply to that tweet ( mention @hook_tweet ) and that tweet will be sent as a dm to the user.
+If you are running on your system, install the required libraries:
+run: 
+ pip install -r requirements.txt in your shell.
+And then simply run the tweetHook.py script
