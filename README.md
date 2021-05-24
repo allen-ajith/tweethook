@@ -28,6 +28,5 @@ To run in your system make a twitter dev account and use the tokens and access k
 ## How to Run
 The bot is now live. To save a tweet, the user needs to mention the bot as a reply to that tweet ( mention @hook_tweet ) and that tweet will be sent as a dm to the user.
 If you are running on your system, install the required libraries:
-run: 
- pip install -r requirements.txt in your shell.
+run:`pip install -r requirements.txt` in your shell.
 And then simply run the tweetHook.py script
