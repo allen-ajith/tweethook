@@ -28,6 +28,7 @@ def connect_to_endpoint_tweet(url, headers):
     # print(response.headers)
     if response.status_code != 200:
         print(f"Request returned an error code: {response.status_code} and text: {response.text}")
+        print(f"header: {response.headers}")
         time.sleep(2)
         return
         
