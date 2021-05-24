@@ -7,6 +7,7 @@ CONSUMER_KEY = os.environ['consumer_key']
 CONSUMER_SECRET = os.environ['consumer_secret']
 ACCESS_TOKEN = os.environ['access_token']
 ACCESS_TOKEN_SECRET = os.environ['access_token_secret']
+
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
@@ -55,7 +56,7 @@ def main():
     headers = create_headers(bearer_token)
     timeout = 0
     while(1):
-        connect_to_endpoint_tweet()
+        connect_to_endpoint_tweet(url,headers)
         timeout += 1
 
 
