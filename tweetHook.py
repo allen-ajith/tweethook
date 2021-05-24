@@ -2,7 +2,7 @@ import requests,json, tweepy
 from random import randint
 import os
 from boto.s3.connection import S3Connection
-from time import  time
+import time
 
 CONSUMER_KEY = os.environ['consumer_key']
 CONSUMER_SECRET = os.environ['consumer_secret']
