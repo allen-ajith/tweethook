@@ -26,7 +26,9 @@ Theres nothing much to configure. The bot is already hosted on heroku and won't 
 All the API tokens and keys are given as an environment variable in heroku and the dependencies used for the bot are saved in requirements.txt
 To run in your system make a twitter dev account and use the tokens and access keys.
 ## How to Run
-The bot is now live. To save a tweet, the user needs to mention the bot as a reply to that tweet ( mention @hook_tweet ) and that tweet will be sent as a dm to the user.
-If you are running on your system, install the required libraries:
-run:`pip install -r requirements.txt` in your shell.
-And then simply run the tweetHook.py script
+The bot is now live. To save a tweet, the user needs to mention the bot as a reply to that tweet ( mention @hook_tweet ) and that tweet will be sent as a dm to the user.  
+If you want to run on your system, install the required libraries:  
+run:`pip install -r requirements.txt` in your shell.  
+Simply run the tweetHook.py script  
+And then use the bot as mentioned above  
+
