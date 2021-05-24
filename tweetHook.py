@@ -40,15 +40,13 @@ def connect_to_endpoint_tweet(url, headers):
                     parentTwtID = json_response["data"]["referenced_tweets"][0]["id"]
                     parentauthor = json_response["data"]["in_reply_to_user_id"]
                     message = "https://twitter.com/"+parentauthor+"/status/"+parentTwtID
-                    # message="hello, you are gay"
                     try:
                         dm = api.send_direct_message(recipient_id = authID,text = message)
                         print(dm.message_create['message_data']['text'])
                     except tweepy.TweepError as e:
                         print("ThreaderBot:Error in sending '{}' as dm response, {}".format(message,e))
         except:
-            print("calling again")
-            return "callagain"
+            pass
 
 
 def main():
@@ -56,9 +54,9 @@ def main():
     url = create_url_tweets()
     headers = create_headers(bearer_token)
     timeout = 0
-    error = connect_to_endpoint_tweet(url=url,headers=headers)
-    if error == "callagain":
-        connect_to_endpoint_tweet(url=url,headers=headers)
+    while(1):
+        connect_to_endpoint_tweet()
+        timeout += 1
 
 
 if __name__ == "__main__":
