@@ -22,6 +22,7 @@ Write a personal script that uses the Twitter API to save the tweet thread in a 
 - tweepy - 3.10.0
 - boto - 2.49.0
 ## How to configure
-Instructions for setting up project
+Theres nothing much to configure. The bot is already hosted on heroku and won't allow multiple instances of itself to run.
+All the API tokens and keys are given as an environment variable in heroku and the dependencies used for the bot are saved in requirements.txt
 ## How to Run
-Instructions for running
+The bot is now live. To save a tweet, the user needs to mention the bot as a reply to that tweet ( mention @hook_tweet ) and that tweet will be sent as a dm to the user.
