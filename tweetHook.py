@@ -2,6 +2,7 @@ import requests,json, tweepy
 from random import randint
 import os
 from boto.s3.connection import S3Connection
+from time import  time
 
 CONSUMER_KEY = os.environ['consumer_key']
 CONSUMER_SECRET = os.environ['consumer_secret']
@@ -26,11 +27,10 @@ def connect_to_endpoint_tweet(url, headers):
     print('twitter response: ',response.status_code)
     # print(response.headers)
     if response.status_code != 200:
-        raise Exception(
-            "Request returned an error: {} {}".format(
-                response.status_code, response.text
-            )
-        )
+        print(f"Request returned an error code: {response.status_code} and text: {response.text}")
+        time.sleep(2)
+        return
+        
     else:
         try:
             for response_line in response.iter_lines():
