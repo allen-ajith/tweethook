@@ -14,7 +14,6 @@ Write a personal script that uses the Twitter API to save the tweet thread in a 
 [link to video]
 https://drive.google.com/file/d/1rC-u5A2BqRn3NvJZZAa1By6PqNtYv3jG/view?usp=sharing
 
-2. Embed video of project demo
 ## Libraries used
 - requests - 2.25.1
 - requests-oauthlib - 1.3.0
