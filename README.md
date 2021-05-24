@@ -11,8 +11,7 @@ Write a personal script that uses the Twitter API to save the tweet thread in a 
 ## Team Id
  BFH/recKGoOYu2vV9QHCH/2021
 ## Link to product walkthrough
-[link to video]
-https://drive.google.com/file/d/1rC-u5A2BqRn3NvJZZAa1By6PqNtYv3jG/view?usp=sharing
+[link to video](https://drive.google.com/file/d/1rC-u5A2BqRn3NvJZZAa1By6PqNtYv3jG/view?usp=sharing)
 
 ## Libraries used
 - requests - 2.25.1
