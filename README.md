@@ -9,9 +9,13 @@ Write a personal script that uses the Twitter API to save the tweet thread in a 
 2. Allen George Ajith [https://github.com/allen-del]
 3. Bennett B Madavana [https://github.com/bennett1412]
 ## Team Id
- BFH/recKGoOYu2vV9QHCH/2021
+ BFH/recKGoOYu2vV9QHCH/2021 
 ## Link to product walkthrough
 [link to video](https://drive.google.com/file/d/1rC-u5A2BqRn3NvJZZAa1By6PqNtYv3jG/view?usp=sharing)
+
+## How it works?
+1. The bot uses 2 API's. One is an filtered stream connection that is open indefinitely ( unless rate limited ) and will return the relevant data whenever someone tags the bot in a tweet. The data includes the author ID of the person who tagged the bot, tweet id of the referenced tweet and author ID of the author of the referenced tweet. This is then used to create a link to that referenced tweet.
+2. The second API is a normal API which sends the link as a direct message to the person who tagged the bot. This API is set up using tweepy, a lightweight library for twitter API.
 
 ## Libraries used
 - requests - 2.25.1
